@@ -99,6 +99,37 @@
                     </div>
                 </div>
             </div>
+            <div class="block">
+                <div class="block-title">
+                    <h2>RECENT TRANSACTIONS</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Transaction Type</td>
+                            <td>Category</td>
+                            <td>Transaction Date</td>
+                            <td>Total Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($transacData as $key => $data)
+                            <tr>
+                                <td>
+                                    @if ($data->transac_type == '0')
+                                        INCOME
+                                    @else
+                                        EXPENSE
+                                    @endif
+                                </td>
+                                <td>{{$data->category}}</td>
+                                <td>{{$data->transac_date}}</td>
+                                <td>₱{{$data->amount}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
